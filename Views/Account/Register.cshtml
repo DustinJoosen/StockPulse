@@ -1,0 +1,109 @@
+﻿@model RegisterDto
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h3 class="my-5">Register</h3>
+
+<div class="col-md-12 row">
+    <form asp-action="Register" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="col-8 row">
+            <div class="form-group mb-2 col-5">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" placeholder="John"/>
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2 col-2">
+                <label asp-for="Particle" class="control-label"></label>
+                <input asp-for="Particle" class="form-control" />
+                <span asp-validation-for="Particle" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2 col-5">
+                <label asp-for="Lastname" class="control-label"></label>
+                <input asp-for="Lastname" class="form-control" placeholder="Doe" />
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-8 row">
+            <div class="form-group mb-2 col-8">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" placeholder="example@gmail.com" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2 col-4">
+                <label asp-for="Pronouns" class="control-label"></label>
+                <input list="pronouns" asp-for="Pronouns" class="form-control" placeholder="She/Her" />
+                <datalist id="pronouns">
+                    <option value="She/Her"></option>
+                    <option value="He/Him"></option>
+                    <option value="They/Them"></option>
+                </datalist>
+                <span asp-validation-for="Pronouns" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-8 row">
+            <div class="form-group mb-2 col-6">
+                <label asp-for="SaltedPassword" class="control-label"></label>
+                <input asp-for="SaltedPassword" class="form-control" placeholder="*******" />
+                <span asp-validation-for="SaltedPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2 col-6">
+                <label asp-for="SaltedPasswordConfirmation" class="control-label"></label>
+                <input asp-for="SaltedPasswordConfirmation" class="form-control" placeholder="*******" />
+                <span asp-validation-for="SaltedPasswordConfirmation" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-8 row">
+            <div class="form-group mb-2 col-6">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" placeholder="06-38296263" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="mb-3 form-group col-6">
+                <label >Profile picture</label>
+                <div>
+                    <input type="file" asp-for="FormFile" class="form-control" id="customFile" aria-describedby="inputGroupFileAddon" onchange="displaySelectedImage(this)">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group mt-5">
+            <input type="submit" value="Register" class="save-btn" />
+            <a class="back-btn" asp-action="Login">Go to Login</a>
+        </div>
+    </form>
+</div>
+
+<img id="register-pic" src="" alt="Selected Image" style="display: none;">
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+
+        function displaySelectedImage(input) {
+            if (!(input.files && input.files[0])) {
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById("register-pic").src = e.target.result;
+                document.getElementById("register-pic").style.display = "block";
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+    </script>
+}
+

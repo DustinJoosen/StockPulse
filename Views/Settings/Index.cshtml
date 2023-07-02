@@ -1,0 +1,23 @@
+﻿@model BusinessSettings
+@{
+    ViewData["Title"] = "Settings";
+}
+
+<h3 class="mt-5">Settings</h3>
+
+
+<form asp-action="Index" method="post" class="col-3">
+    <div class="form-group mb-3">
+        <label asp-for="DefaultEmployeePassword" class="control-label"></label>
+        <input asp-for="DefaultEmployeePassword" class="form-control"  placeholder=""/>
+        <span asp-validation-for="DefaultEmployeePassword" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="DefaultEmployeeSalary" class="control-label"></label>
+        <input asp-for="DefaultEmployeeSalary" class="form-control" placeholder="" />
+        <span asp-validation-for="DefaultEmployeeSalary" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Update settings" class="save-btn" />
+    </div>
+</form>

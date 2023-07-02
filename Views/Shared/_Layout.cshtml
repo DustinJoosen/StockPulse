@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - StockPulse</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/StockPulse.styles.css" asp-append-version="true" />
+    <script src="https://kit.fontawesome.com/d8e4365f07.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="header">Stock Pulse</div>
+        <div class="hyperlinks">
+            <a class="sidebar-hyperlink" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-house"></i>Dashboard</a>
+            <a class="sidebar-hyperlink" asp-controller="Stocks" asp-action="Index"><i class="fa-sharp fa-solid fa-boxes-stacked"></i>Stocks</a>
+            <hr/>
+            <a class="sidebar-hyperlink" asp-controller="Warehouses" asp-action="Index"><i class="fa-solid fa-warehouse"></i>Warehouses</a>
+            <a class="sidebar-hyperlink" asp-controller="Products" asp-action="Index"><i class="fa-solid fa-cube"></i>Products</a>
+            <hr/>
+            <a class="sidebar-hyperlink" asp-controller="Customers" asp-action="Index"><i class="fa-solid fa-person"></i>Customers</a>
+            <a class="sidebar-hyperlink" asp-controller="Employees" asp-action="Index"><i class="fa-solid fa-briefcase"></i>Employees</a>
+            <hr/>
+            <a class="sidebar-hyperlink" asp-controller="Orders" asp-action="Index"><i class="fa-solid fa-bag-shopping"></i>Orders</a>
+            <hr/>
+
+            @if (User.IsInRole("admin")) {
+                <a class="sidebar-hyperlink" asp-controller="Settings" asp-action="Index"><i class="fa-solid fa-gear"></i>Settings</a>
+                <hr/>
+            }
+
+            <div class="bottom-container">
+                @if (User.Identity.IsAuthenticated) 
+                {
+                    <a class="sidebar-hyperlink" asp-controller="Account" asp-action="Logout"><i class="fa-solid fa-sign-out"></i>Logout</a>
+                } 
+                else
+                {
+                    <a class="sidebar-hyperlink" asp-controller="Account" asp-action="Login"><i class="fa-solid fa-user"></i>Login</a>
+                    <a class="sidebar-hyperlink" asp-controller="Account" asp-action="Register"><i class="fa-sharp fa-solid fa-user-plus"></i>Register</a>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await Component.InvokeAsync("Notyf")
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

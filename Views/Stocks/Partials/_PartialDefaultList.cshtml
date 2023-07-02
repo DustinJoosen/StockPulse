@@ -1,0 +1,27 @@
+﻿@model List<ProductStock>
+
+<table class="stock-table table table-bordered table-striped">
+    <tr>
+        <th>Product</th>
+        <th>Warehouse</th>
+        <th>Quantity</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <form asp-action="ModifyQuantity" method="post">
+            <input type="hidden" value="@item.ProductNum" name="ProductNum" />
+            <input type="hidden" value="@item.WareHouseId" name="WarehouseId" />
+            <tr>
+                <td>@item.Product.Name</td>
+                <td>@item.Warehouse.City</td>
+                <td>
+                    <input type="number" min="0" value="@item.Quantity" name="quantity" />
+                </td>
+                <td>
+                    <button class="quantity-modify-btn" type="submit">Update quantity</button>
+                </td>
+            </tr>
+        </form>
+    }
+</table>

@@ -1,0 +1,81 @@
+﻿@model StockPulse.Models.Warehouse
+
+@{
+    ViewData["Title"] = "Warehouse Details";
+}
+
+<h3 class="mt-5">Warehouse Details</h3>
+<hr />
+
+<div class="row">
+    <div class="col-8">
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Street)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Street)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.ZipCode)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.City)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Manager)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Manager.PersonEmail)
+            </dd>
+        </dl>
+        <hr/>
+
+        <h5>Warehouse stocks</h5>
+        <table class="stock-table table table-bordered table-striped product-stock-warehouse-table display-block" id="hidden-stock-warehouse-table-@Model.Id">
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var stock in Model.ProductStocks) {
+                <form asp-action="ModifyQuantity" asp-controller="Stocks" method="post">
+                    <input type="hidden" name="returnUrl" value="/Warehouses/Details/@Model.Id" />
+                    <input type="hidden" value="@stock.ProductNum" name="ProductNum" />
+                    <input type="hidden" value="@Model.Id" name="WarehouseId" />
+                    <tr>
+                        <td>@stock.Product.Name</td>
+                        <td>
+                            <input type="number" value="@stock.Quantity" name="quantity" />
+                        </td>
+                        <td>
+                            <button class="quantity-modify-btn" type="submit">Update quantity</button>
+                        </td>
+                    </tr>
+                </form>
+            }
+        </table>
+    </div>
+
+    <div class="details-stats col-3">
+        <div class="stat">
+            <h5 class="name">Total stocks</h5>
+            <h5 class="val">@Model.ProductStocks.Select(ps => ps.Quantity).Sum()</h5>
+        </div>
+        <div class="stat">
+            <h5 class="name">Most common product</h5>
+            <h5 class="val">@Model.ProductStocks.OrderBy(ps => ps.Quantity).Last().Product.Name</h5>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Edit" class="save-btn" asp-route-id="@Model?.Id">Edit</a>
+    <a class="back-btn" asp-action="Index">Back</a>      
+</div>

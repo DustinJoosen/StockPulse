@@ -1,0 +1,69 @@
+﻿@model IEnumerable<StockPulse.Models.Employee>
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+
+<div class="mt-2 mb-5" style="display: flex; align-items: center;">
+    <h3 style="display: inline-block" class="mt-5">Employees</h3>
+    <div style="inline-block" class="mt-5 ml-5">
+        <a class="create-model-btn" asp-action="Create" style="display: flex; align-items: center; width: 230px; height: 50px;">
+            <i class="fa-solid fa-plus"></i>
+            Create new employee
+        </a>
+    </div>
+</div>    
+
+
+<sub>@Model.Count() employees</sub>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Person.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person.FullName)
+            </th>
+            <th>Actions</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                <span class="admin-icon" title="This employee is an admin" style="@(item.IsAdmin ? "visibility: visible;" : "")"></span>
+                @Html.DisplayFor(modelItem => item.Person.Email)
+            </td>
+            <td>
+                @item.Person.FullName (@item.Person.Pronouns)
+            </td>
+            <td>
+                @if (User.IsInRole("admin") || item.PersonEmail == User.Identity.Name )
+                {
+                    <a class="action-model-btn" asp-action="Edit" asp-route-id="@item.PersonEmail">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        Edit Employee
+                    </a>
+                    <a class="action-model-btn" asp-action="Details" asp-route-id="@item.PersonEmail">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Details
+                    </a>                        
+                }
+            </td>
+            <td>
+                    @if (User.IsInRole("admin") || item.PersonEmail == User.Identity.Name )
+                    {
+                        <a class="delete-model-btn" asp-action="Delete" asp-route-id="@item.PersonEmail">
+                            <i class="fa-solid fa-trash"></i>
+                            Delete
+                        </a>
+                    }
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

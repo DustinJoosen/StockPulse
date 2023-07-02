@@ -1,0 +1,9 @@
+﻿@model StockPageDto
+
+<button class="btn-pv-switcher btn-product-stock-set-default">View all stock</button>
+<button class="btn-pv-switcher btn-product-stock-set-product">View grouped by product</button>
+<button class="btn-pv-switcher btn-product-stock-set-warehouse">View grouped by warehouse</button>
+
+<div class="product-stock-view-default">@Html.Partial("Partials/_PartialDefaultList", Model.Stocks)</div>
+<div class="product-stock-view-product">@Html.Partial("Partials/_PartialProductList", Model.Products)</div>
+<div class="product-stock-view-warehouse">@Html.Partial("Partials/_PartialWarehouseList", Model.Warehouses)</div>

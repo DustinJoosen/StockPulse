@@ -1,0 +1,90 @@
+﻿@model StockPulse.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h3 class="mt-5">Product Details</h3>
+<hr />
+
+
+<div class="row">
+    <div class="col-8">
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            @if (Model.Description != null && !String.IsNullOrWhiteSpace(Model.Description))
+            {
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+            }
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.PurchasePrice)
+            </dt>
+            <dd class = "col-sm-10">
+                €@Html.DisplayFor(model => model.PurchasePrice)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.SellingPrice)
+            </dt>
+            <dd class = "col-sm-10">
+                €@Html.DisplayFor(model => model.SellingPrice)
+            </dd>
+        </dl>
+        <hr/>
+
+        <h5>Product stocks</h5>
+        <table class="stock-table table table-bordered table-striped product-stock-product-table display-block" id="hidden-stock-product-table-@Model.ProductNum">
+            <tr>
+                <th>Warehouse</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var stock in Model.ProductStocks) {
+                <form asp-action="ModifyQuantity" asp-controller="Stocks" method="post">
+                    <input type="hidden" name="returnUrl" value="/Products/Details/@Model.ProductNum" />
+                    <input type="hidden" value="@Model.ProductNum" name="ProductNum" />
+                    <input type="hidden" value="@stock.WareHouseId" name="WarehouseId" />
+                    <tr>
+                        <td>@stock.Warehouse.City</td>
+                        <td>
+                            <input type="number" value="@stock.Quantity" name="quantity" />
+                        </td>
+                        <td>
+                            <button class="quantity-modify-btn" type="submit">Update quantity</button>
+                        </td>
+                    </tr>
+                </form>
+            }
+        </table>
+    </div>
+
+    <div class="col-3">
+        <div class="stat">
+            <h5 class="name">Total stock</h5>
+            <h5 class="val">@Model.TotalStock</h5>
+        </div>
+        <div class="stat">
+            <h5 class="name">Profit per sale</h5>
+            <h5 class="val">€@Model.ProfitPerSell.ToString("F2")</h5>
+        </div>
+
+        <img id="selected-image-without-positioning" src="@Model.FullImagePath" alt="Selected Image" />
+    </div>
+
+
+
+</div>
+
+<div>
+    <a asp-action="Edit" class="save-btn" asp-route-id="@Model?.ProductNum">Edit</a>
+    <a class="back-btn" asp-action="Index">Back</a>    
+</div>

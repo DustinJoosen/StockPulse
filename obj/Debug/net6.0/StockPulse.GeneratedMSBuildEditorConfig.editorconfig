@@ -1,0 +1,164 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = StockPulse
+build_property.RootNamespace = StockPulse
+build_property.ProjectDir = C:\Users\Dustin\Desktop\Programs\C#\Private\StockPulse\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Dustin\Desktop\Programs\C#\Private\StockPulse
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Customers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Customers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Customers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Customers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Customers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Employees/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Employees/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Employees/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Employees/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Employees/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Orders/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Orders/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Orders/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Orders/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Orders/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Products/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Products/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Products/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Products/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Settings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2V0dGluZ3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Stocks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Stocks/Partials/_PartialDefaultList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tzXFBhcnRpYWxzXF9QYXJ0aWFsRGVmYXVsdExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Stocks/Partials/_PartialProductList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tzXFBhcnRpYWxzXF9QYXJ0aWFsUHJvZHVjdExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Stocks/Partials/_PartialWarehouseList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tzXFBhcnRpYWxzXF9QYXJ0aWFsV2FyZWhvdXNlTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Warehouses/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Warehouses/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Warehouses/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Warehouses/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Warehouses/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZWhvdXNlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dustin/Desktop/Programs/C\#/Private/StockPulse/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ut5m6lgnl9

@@ -1,0 +1,30 @@
+﻿@model List<Warehouse>
+
+@foreach (var warehouse in Model)
+{
+    <button class="oranged-btn product-stock-warehouse-header" value="@warehouse.Id">
+        @warehouse.City +
+    </button>
+    <table class="stock-table table table-bordered table-striped product-stock-warehouse-table" id="hidden-stock-warehouse-table-@warehouse.Id">
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var stock in warehouse.ProductStocks) {
+            <form asp-action="ModifyQuantity" method="post">
+                <input type="hidden" value="@stock.ProductNum" name="ProductNum" />
+                <input type="hidden" value="@warehouse.Id" name="WarehouseId" />
+                <tr>
+                    <td>@stock.Product.Name</td>
+                    <td>
+                        <input type="number" value="@stock.Quantity" name="quantity" />
+                    </td>
+                    <td>
+                        <button class="quantity-modify-btn" type="submit">Update quantity</button>
+                    </td>
+                </tr>
+            </form>
+        }
+    </table>
+}

@@ -1,0 +1,74 @@
+﻿@model StockPulse.Models.Product
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<h3 class="mt-5">Edit product</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProductNum" />
+            <input type="hidden" asp-for="ImagePath" />
+            <div class="form-group mb-2">
+                <label asp-for="ProductNum" class="control-label"></label>
+                <input disabled="disabled" value="@Model.ProductNum" name="x" class="form-control" />
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="PurchasePrice" class="control-label"></label>
+                <input asp-for="PurchasePrice" class="form-control" />
+                <span asp-validation-for="PurchasePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="SellingPrice" class="control-label"></label>
+                <input asp-for="SellingPrice" class="form-control" />
+                <span asp-validation-for="SellingPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <label >Product image</label>
+                <div>
+                    <input type="file" asp-for="FormFile" class="form-control" id="customFile" aria-describedby="inputGroupFileAddon" onchange="displaySelectedImage(this)">
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="save-btn" />
+                <a class="back-btn" asp-action="Index">Back</a>            
+            </div>
+        </form>
+    </div>
+</div>
+
+<img id="selected-image" src="@Model.FullImagePath" alt="Selected Image" />
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        function displaySelectedImage(input) {
+            if (!(input.files && input.files[0])) {
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById("selected-image").src = e.target.result;
+                document.getElementById("selected-image").style.display = "block";
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    </script>
+}

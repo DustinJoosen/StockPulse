@@ -1,0 +1,118 @@
+﻿@model StockPulse.Dtos.EmployeeDto
+
+@{
+    ViewData["Title"] = "Create Employee";
+}
+
+<h3 class="mt-5">Create Employee</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-12 row">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-8 row">
+                <div class="form-group mb-2 col-5">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" placeholder="John"/>
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2 col-2">
+                    <label asp-for="Particle" class="control-label"></label>
+                    <input asp-for="Particle" class="form-control" />
+                    <span asp-validation-for="Particle" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2 col-5">
+                    <label asp-for="Lastname" class="control-label"></label>
+                    <input asp-for="Lastname" class="form-control" placeholder="Doe" />
+                    <span asp-validation-for="Lastname" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-8 row">
+                <div class="form-group mb-2 col-8">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" placeholder="example@gmail.com" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2 col-4">
+                    <label asp-for="Pronouns" class="control-label"></label>
+                    <input list="pronouns" asp-for="Pronouns" class="form-control" placeholder="She/Her" />
+                    <datalist id="pronouns">
+                        <option value="She/Her"></option>
+                        <option value="He/Him"></option>
+                        <option value="They/Them"></option>
+                    </datalist>
+                    <span asp-validation-for="Pronouns" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-8 row">
+                <div class="form-group mb-2 col-6">
+                    <label asp-for="MonthlySalary" class="control-label"></label>
+                    <input asp-for="MonthlySalary" class="form-control" placeholder="2500,-" />
+                    <span asp-validation-for="MonthlySalary" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2 col-6">
+                    <label asp-for="EmployeeSince" class="control-label"></label>
+                    <input asp-for="EmployeeSince" type="date" class="form-control"  value="@DateTime.Today.ToString("yyyy-MM-dd")"/>
+                    <span asp-validation-for="EmployeeSince" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-8 row">
+                <div class="form-group mb-2 col-6">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="06-38296263" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="mb-3 form-group col-6">
+                    <label>Profile picture</label>
+                    <div>
+                        <input type="file" asp-for="FormFile" class="form-control" id="customFile" aria-describedby="inputGroupFileAddon" onchange="displaySelectedImage(this)">
+                    </div>
+                </div>
+            </div>
+
+            @if (User.IsInRole("admin")) {
+                <div class="form-check form-switch">
+                    <input class="form-check-input" asp-for="IsAdmin" type="checkbox" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Is this employee an admin</label>
+                </div>
+            }
+
+            <div class="form-group mt-5">
+                <input type="submit" value="Create" class="save-btn" />
+                <a class="back-btn" asp-action="Index">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<img id="register-pic" src="" alt="Selected Image" style="display: none;">
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+
+        function displaySelectedImage(input) {
+            if (!(input.files && input.files[0])) {
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById("register-pic").src = e.target.result;
+                document.getElementById("register-pic").style.display = "block";
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+    </script>
+}

@@ -1,0 +1,43 @@
+﻿@model StockPulse.Models.Warehouse
+
+@{
+    ViewData["Title"] = "Create Warehouse";
+}
+
+<h3 class="mt-5">Create Warehouse</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-2">
+                <label asp-for="Street" class="control-label"></label>
+                <input asp-for="Street" class="form-control" placeholder="Main street" />
+                <span asp-validation-for="Street" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="ZipCode" class="control-label"></label>
+                <input asp-for="ZipCode" class="form-control"  placeholder="1111AB"/>
+                <span asp-validation-for="ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" placeholder="City" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-5">
+                <label asp-for="ManagerEmail" class="control-label"></label>
+                <select asp-for="ManagerEmail" class ="form-control" asp-items="ViewBag.ManagerEmail"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="save-btn" />
+                <a class="back-btn" asp-action="Index">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

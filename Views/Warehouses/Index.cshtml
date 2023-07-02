@@ -1,0 +1,71 @@
+﻿@model IEnumerable<StockPulse.Models.Warehouse>
+
+@{
+    ViewData["Title"] = "Warehouses";
+}
+
+<div class="mt-2 mb-5" style="display: flex; align-items: center;">
+    <h3 style="display: inline-block" class="mt-5">Warehouses</h3>
+    <div style="inline-block" class="mt-5 ml-5">
+        <a class="create-model-btn" asp-action="Create" style="display: flex; align-items: center; width: 230px; height: 50px;">
+            <i class="fa-solid fa-plus"></i>
+            Create new warehouse
+        </a>
+    </div>
+</div>
+
+<sub>@Model.Count() warehouses</sub>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Street)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manager)
+            </th>
+            <th>Actions</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.Manager.PersonEmail)
+            </td>
+            <td>
+                <a class="action-model-btn" asp-action="Edit" asp-route-id="@item.Id">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Edit Warehouse
+                </a>
+                <a class="action-model-btn" asp-action="Details" asp-route-id="@item.Id">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Details
+                </a>
+            </td>
+            <td>
+                <a class="delete-model-btn" asp-action="Delete" asp-route-id="@item.Id">
+                    <i class="fa-solid fa-trash"></i>
+                    Delete
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

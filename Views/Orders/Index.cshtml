@@ -1,0 +1,71 @@
+﻿@model IEnumerable<StockPulse.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="mt-2 mb-5" style="display: flex; align-items: center;">
+    <h3 style="display: inline-block" class="mt-5">Orders</h3>
+    <div style="inline-block" class="mt-5 ml-5">
+        <a class="create-model-btn" asp-action="Create" style="display: flex; align-items: center; width: 230px; height: 50px;">
+            <i class="fa-solid fa-plus"></i>
+            Create new order
+        </a>
+    </div>
+</div>
+
+<sub>@Model.Count() orders</sub>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                Amount of products
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+            <th>Actions</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.PersonEmail)
+            </td>
+            <td>
+                @item.OrderLines.Count()
+            </td>
+            <td>
+                €@item.TotalPrice.ToString("N2")
+            </td>
+            <td>
+                <a class="action-model-btn" asp-action="Edit" asp-route-id="@item.OrderNum">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Edit Product
+                </a>
+                <a class="action-model-btn" asp-action="Details" asp-route-id="@item.OrderNum">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Details
+                </a>
+            </td>
+            <td>
+                <a class="delete-model-btn" asp-action="Delete" asp-route-id="@item.OrderNum">
+                    <i class="fa-solid fa-trash"></i>
+                    Delete
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

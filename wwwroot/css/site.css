@@ -1,0 +1,430 @@
+* {
+    font-family: Tenorite;
+}
+
+html {
+  font-size: 14px;
+  font-family: Tenorite;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+}
+
+.content {
+    flex-grow: 1;
+}
+
+@font-face {
+    font-family: "Tenorite";
+    src: url("../lib/tenorite.ttf");
+}
+
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: rgb(51, 51, 51);
+    color: white;
+    margin-right: 50px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar .header {
+    padding: 12px;
+    padding-top: 20px;
+    font-family: "Tenorite";
+    font-size: 30px;
+    box-sizing: content-box;
+    border: 2px solid gray;
+    background-color: rgb(51, 51, 51)
+}
+.hyperlinks {
+    margin-top: 30px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: column;
+
+}
+.sidebar a {
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3px;
+    color: white !important;
+    font-family: "Tenorite";
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 12px;
+    transition: background-color 500ms;
+}
+
+.sidebar a:hover {
+    background-color: rgb(70, 70, 70);
+}
+.sidebar a.active {
+    background-color: whitesmoke;
+    color: rgb(70, 70, 70) !important;
+}
+i {
+    margin-right: 20px;
+    width: 10px;
+}
+
+.bottom-container {
+    margin-top: auto;
+}
+
+.stock-table {
+    width: 600px;
+}
+
+.stock-table td,
+.stock-table th 
+{ 
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.stock-table input[type=number] {
+    background: white;
+    width: 60px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    box-shadow: 2px 2px 10px gray;
+}
+
+.product-stock-warehouse-table,
+.product-stock-product-table 
+{
+    padding: 10px;
+    margin-top: 10px;
+    display: none;
+}
+
+.oranged-btn {
+    background: inherit;
+    border: none;
+    border-radius: 3px;
+    padding: 7px;
+    background-color: rgb(150, 255, 150);
+    box-shadow: 2px 2px 10px gray;
+    color: #222;
+}
+
+.quantity-modify-btn {
+    border: none;
+    border-radius: 5px;
+    padding: 7px;
+    color: white;
+    background-color: #ff8d00;
+    box-shadow: 2px 2px 10px gray;
+}
+
+.product-stock-warehouse-header,
+.product-stock-product-header {
+    width: 400px;
+    text-align: left;
+    display: block;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.product-stock-view-default,
+.product-stock-view-product,
+.product-stock-view-warehouse {
+    display: none;
+}
+
+.btn-pv-switcher {
+    padding: 8px;
+    border: none;
+    color: #222;
+    margin: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(150, 255, 150);
+    border-radius: 3px;
+    transition: background-color 300ms;
+    box-shadow: 2px 2px 10px gray;
+}
+.btn-pv-switcher:hover {
+    background-color: rgba(150, 255, 150, 0.7);
+}
+
+.create-model-btn {
+    background-color: #ff8d00;
+    padding: 8px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px gray;
+    display: inline-block;
+    margin-left: 40px;
+    transition: box-shadow 500ms;
+}
+.create-model-btn:hover {
+    color: white;
+    box-shadow: 5px 5px 10px gray;
+}
+
+.action-model-btn {
+    background-color: lightgreen;
+    padding: 8px;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px gray;
+    transition: box-shadow 500ms;
+}
+.action-model-btn:hover {
+    color: black;
+    box-shadow: 5px 5px 10px gray;
+}
+
+.delete-model-btn {
+    background: tomato;
+    padding: 8px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px gray;
+    transition: box-shadow 500ms;
+}
+.delete-model-btn:hover {
+    color: white;
+    box-shadow: 5px 5px 10px gray;
+}
+
+td .action-model-btn:nth-child(1) {
+    margin-right: 10px;
+}
+
+
+.save-btn {
+    border: none;
+    background-color: lightgreen;
+    border-radius: 5px;
+    padding: 8px;
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: 2px 2px 10px gray;
+    margin-right: 10px;
+}
+.back-btn {
+    border: none;
+    background-color: tomato;
+    border-radius: 5px;
+    padding: 8px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 2px 2px 10px gray;
+}
+.save-btn:hover,
+.back-btn:hover 
+{
+    color: white;
+}
+
+.stat:nth-child(1) {
+    background-color: lightblue;
+    box-shadow: 2px 2px 10px lightblue;
+}
+.stat:nth-child(2) {
+    background-color: lightsalmon;
+    box-shadow: 2px 2px 10px lightsalmon;
+}
+.stat {
+    width: 250px;
+    min-height: 100px;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    padding: 8px;
+    padding-top: 25px;
+    border-radius: 3px;
+    margin: 5px;
+}
+.stat .name {
+    text-align: center;
+    font-size: 16px;
+}
+.stat .val {
+    text-align: center;
+    font-size: 24px;
+}
+
+#selected-image {
+    max-width: 400px;
+    max-height: 400px;
+    position: absolute;
+    right: 100px;
+    top: 150px;
+    outline: 3px dashed black;
+}
+#selected-image-without-positioning {
+    max-width: 250px;
+    max-height: 250px;
+    outline: 3px dashed black;
+    margin-top: 30px;
+}
+#register-pic {
+    max-width: 300px;
+    max-height: 300px;
+    position: absolute;
+    right: 100px;
+    top: 150px;
+    outline: 3px dashed black;
+}
+
+.display-block {
+    display: block;
+}
+
+/* Cough cough Jaimie cough */
+/*bottom {
+    position: sticky;
+    bottom: 0;
+    border: 1px solid red;
+}*/
+
+.login-form-block {
+    width: 400px;
+    padding: 10px;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 7px;
+    box-shadow: 10px 10px 10px lightgray;
+}
+
+.login-form-block .form-group {
+    margin: 30px;
+}
+
+.login-form-block input[type=text] {
+    background-color: transparent;
+}
+
+
+.admin-icon {
+    width: 20px;
+    height: 20px;
+    border: 1px solid red;
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    left: -2px;
+    border-radius: 50%;
+    background-color: tomato;
+    visibility: hidden;
+}
+.admin-icon::before {
+    content: 'A';
+    color: white;
+    font-size: 15px;
+    padding-left: 5px;
+}
+
+.dashboard-stat {
+    margin: 8px;
+    border-radius: 5px;
+    padding-top: 30px;
+    outline-offset: -10px;
+    color: floralwhite;
+    display: inline-block;
+}
+.dashboard-stat-header {
+    font-size: 25px;
+    text-align: center;
+}
+.dashboard-stat-value {
+    font-size: 45px;
+    text-align: center;
+}
+
+.dashboard-stat.med {
+    width: 360px;
+}
+.dashboard-stat.lar {
+    width: 551px;
+}
+
+.dashboard-stat.red {
+    background-color: tomato;
+    border: 3px solid red;
+    outline: 2px dashed red;
+    box-shadow: 5px 5px 10px tomato;
+}
+.dashboard-stat.blue {
+    background-color: #87CEEB;
+    border: 3px solid rgb(100, 100, 255);
+    outline: 2px dashed rgb(100, 100, 255);
+    box-shadow: 5px 5px 10px #87CEEB;
+}
+.dashboard-stat.green {
+    background-color: lightgreen;
+    border: 3px solid #6fc276;
+    outline: 2px dashed #6fc276;
+    box-shadow: 5px 5px 10px lightgreen;
+}
+
+.order-product-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    text-align: left !important;
+}
+.order-product-list-item img {
+    object-fit: scale-down;
+    min-width: 100px;
+}
+
+.delete-order-product-btn {
+    background: tomato;
+    padding: 8px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px gray;
+    transition: box-shadow 500ms;
+}
+.delete-order-product-btn:hover {
+    color: white;
+    box-shadow: 5px 5px 10px gray;
+}
+
+.delete-order-product-btn i {
+    padding: 5px;
+}
+
+.add-product-to-order-btn {
+    border: none;
+    background-color: orange;
+    border-radius: 5px;
+    padding: 8px;
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: 2px 2px 10px gray;
+    margin-right: 10px;
+}

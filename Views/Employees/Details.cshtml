@@ -1,0 +1,75 @@
+﻿@model StockPulse.Models.Employee
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<h3 class="mt-5">Employee Details</h3>
+<hr />
+
+<div class="row">
+    <div class="col-8">
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Person.FullName)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Person.FullName)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Person.Email)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Person.Email)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Person.Pronouns)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Person.Pronouns)
+            </dd>
+            @if (Model.Person.PhoneNumber != null) {
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.Person.PhoneNumber)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.Person.PhoneNumber)
+                </dd>
+            }
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.EmployeeSince)
+            </dt>
+            <dd class = "col-sm-10">
+                @Model.EmployeeSince.ToString("dd MMM yyyy")
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.MonthlySalary)
+            </dt>
+            <dd class = "col-sm-10">
+                €@Html.DisplayFor(model => model.MonthlySalary)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="col-3">
+        <div class="stat">
+            <h5 class="name">Employeed for</h5>
+            <h5 class="val">@(DateTime.Today.Year - Model.EmployeeSince.Year) years</h5>
+        </div>
+        @if (Model.Warehouse != null)
+        {
+            <div class="stat">
+                <h5 class="name">Manager of warehouse</h5>
+                <h5 class="val">@Model.Warehouse.City</h5>
+            </div>
+        }
+        <img id="selected-image-without-positioning" src="@Model.FullImagePath" alt="Selected Image" />
+    </div>
+
+</div>
+
+
+<div>
+    <a asp-action="Edit" class="save-btn" asp-route-id="@Model?.PersonEmail">Edit</a>
+    <a class="back-btn" asp-action="Index">Back</a>    
+</div>

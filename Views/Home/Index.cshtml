@@ -1,0 +1,44 @@
+﻿@model StatDto
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="my-5 text-center">
+    <h2>Stock Pulse Dashboard</h2>
+    <p>Welcome @Model.User.Person.FullName!</p>
+</div>
+
+<div class="mt-5">
+    <div class="dashboard-stat med red">
+        <h2 class="dashboard-stat-header">Total amount of products</h2>
+        <p class="dashboard-stat-value">@Model.AmountProducts</p>
+    </div>
+    <div class="dashboard-stat med blue">
+        <h2 class="dashboard-stat-header">Total amount of warehouses</h2>
+        <p class="dashboard-stat-value">@Model.AmountWarehouses</p>
+    </div>
+    <div class="dashboard-stat med green">
+        <h2 class="dashboard-stat-header">Amount of orders</h2>
+        <p class="dashboard-stat-value">@Model.AmountOrders</p>
+    </div>
+    <div class="dashboard-stat lar red">
+        <h2 class="dashboard-stat-header">Total salary paid per month</h2>
+        <p class="dashboard-stat-value">€@Model.MonthlyTotalSalary.ToString("N2")</p>
+    </div>
+    <div class="dashboard-stat lar blue">
+        <h2 class="dashboard-stat-header">Total salary paid per year</h2>
+        <p class="dashboard-stat-value">€@Model.YearlyTotalSalary.ToString("N2")</p>
+    </div>
+    <div class="dashboard-stat med blue">
+        <h2 class="dashboard-stat-header">Total amount of employees</h2>
+        <p class="dashboard-stat-value">@Model.AmountEmployees</p>
+    </div>
+    <div class="dashboard-stat med green">
+        <h2 class="dashboard-stat-header">Total amount of customers</h2>
+        <p class="dashboard-stat-value">@Model.AmountCustomers</p>
+    </div>
+    <div class="dashboard-stat med red">
+        <h2 class="dashboard-stat-header">Profit if sold all products</h2>
+        <p class="dashboard-stat-value">€@Model.TotalStocksValue.ToString("N2")</p>
+    </div>
+</div>

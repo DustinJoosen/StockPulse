@@ -1,0 +1,89 @@
+﻿@model StockPulse.Models.Order
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<h3 class="mt-5">Order Details</h3>
+
+<div class="row mb-4">
+    <hr />
+    <dl class="row col-8">
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.OrderNum)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.OrderNum)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Customer)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Customer.PersonEmail)
+        </dd>
+        @if (Model.DiscountPrice != null)
+        {
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.DiscountPrice)
+            </dt>
+            <dd class = "col-sm-8">
+                €@Html.DisplayFor(model => model.DiscountPrice)
+            </dd>
+        }
+        @if (Model.DeliveryNotes != null)
+        {
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.DeliveryNotes)
+            </dt>
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.DeliveryNotes)
+            </dd>
+        }
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+        <dd class = "col-sm-8">
+            €@Model.TotalPrice.ToString("N2")
+        </dd>
+    </dl>
+    @if ((ViewBag.Products as SelectList).Count() > 0)
+    {
+        <form asp-action="AddOrderLine" class="col-2">
+            <input type="hidden" name="ordernum" value="@Model.OrderNum" />
+            <div class="form-group mb-2">
+                <label class="control-label">Product</label>
+                <select name="product" class="form-control" asp-items="ViewBag.Products"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add product to order" class="add-product-to-order-btn" />
+            </div>
+        </form>
+    }
+
+</div>
+
+
+@if (Model.OrderLines.Any())
+{
+    <hr/>
+    <h4 class="mt-4">Products</h4>
+    
+    <ul class="list-group col-4 mb-5">
+        @foreach (var orderLine in Model.OrderLines)
+        {
+            <li class="list-group-item order-product-list-item">
+                <img src="@orderLine.Product.FullImagePath" height="50" />
+                <span style="font-size: 20px">@orderLine.Product.Name</span>
+                <a class="delete-order-product-btn" asp-action="DeleteOrderLine" asp-route-ordernum="@Model.OrderNum" asp-route-productnum="@orderLine.ProductNum">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+            </li>
+        }
+    </ul>
+}
+
+<hr/>
+<div>
+    <a asp-action="Edit" class="save-btn" asp-route-id="@Model?.OrderNum">Edit</a>
+    <a class="back-btn" asp-action="Index">Back</a>    
+</div>
